@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "name": "genesis-cli-starter",
+  "description": "Count words and Unicode characters in text, without external network requests.",
+  "entry": "src/index.js",
+  "input": {
+    "text": {
+      "type": "string",
+      "label": "Your text",
+      "max": 5000,
+      "optional": false,
+      "default": ""
+    }
+  },
+  "network": [],
+  "timeoutMs": 2000,
+  "tests": [
+    {
+      "name": "Empty text",
+      "input": {
+        "text": ""
+      },
+      "expect": {
+        "characters": 0,
+        "words": 0
+      }
+    },
+    {
+      "name": "English text",
+      "input": {
+        "text": "Hello GENESIS"
+      },
+      "expect": {
+        "characters": 13,
+        "words": 2
+      }
+    },
+    {
+      "name": "Unicode text",
+      "input": {
+        "text": "أهلا 👋"
+      },
+      "expect": {
+        "characters": 6,
+        "words": 2
+      }
+    }
+  ],
+  "verify": "genesis-verify-ec0bf168cc90c94c167d8e37956e6e72"
+}
